@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .glass-card {
+    @apply bg-white/75 dark:bg-slate-900/60 backdrop-blur-lg border border-slate-200/50 dark:border-slate-800/40 shadow-xl;
+  }
+  
+  .glass-card-interactive {
+    @apply glass-card hover:bg-white/85 dark:hover:bg-slate-900/70 hover:shadow-2xl hover:-translate-y-0.5 hover:border-primary-500/30 dark:hover:border-primary-500/20 transition-all duration-300;
+  }
+  
+  .glass-input {
+    @apply bg-white/50 dark:bg-slate-900/50 backdrop-blur-md border border-slate-200 dark:border-slate-800 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none rounded-xl px-4 py-2.5 transition-all duration-200;
+  }
+  
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 via-purple-500 to-indigo-600;
+  }
+  
+  .glow-primary {
+    @apply shadow-[0_0_25px_rgba(99,102,241,0.25)];
+  }
+
+  .glow-secondary {
+    @apply shadow-[0_0_25px_rgba(16,185,129,0.25)];
+  }
+  
+  .bg-grid {
+    background-size: 50px 50px;
+    background-image: 
+      linear-gradient(to right, rgba(99, 102, 241, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
+  }
+  
+  .dark .bg-grid {
+    background-image: 
+      linear-gradient(to right, rgba(99, 102, 241, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(99, 102, 241, 0.02) 1px, transparent 1px);
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-800 rounded-full hover:bg-slate-400 dark:hover:bg-slate-700 transition-colors duration-200;
+}
+
+/* Custom radial animation circles */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
